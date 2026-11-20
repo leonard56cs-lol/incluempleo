@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Contraseña - IncluEmpleo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header style="justify-content: center;"><div class="logo"><h1>IncluEmpleo</h1></div></header>
+    <main>
+        <div class="form-container">
+            <h2>Crear Nueva Contraseña</h2>
+            <form id="formReset">
+                <div class="form-group">
+                    <label for="password">Nueva Contraseña:</label>
+                    <input type="password" id="password" required minlength="6">
+                </div>
+                <button type="submit" class="btn">Actualizar Contraseña</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        if (!token) {
+            alert('Token inválido o ausente.');
+            window.location.href = 'login.php';
+        }
+
+        document.getElementById('formReset').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('api/actualizar-password.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token, password })
+            });
+
+            const result = await response.json();
+
+            if (result.status === 'ok') {
+                alert('Contraseña actualizada exitosamente. Ahora puedes iniciar sesión.');
+                window.location.href = 'login.php';
+            } else {
+                alert(result.mensaje);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa del Sitio - IncluEmpleo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .mapa-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        .mapa-container h2 { color: var(--color-primario); text-align: center; margin-bottom: 2rem; }
+        .seccion-mapa { margin-bottom: 2rem; }
+        .seccion-mapa h3 { color: var(--color-secundario); border-bottom: 2px solid var(--color-secundario); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+        ul.lista-mapa { list-style-type: none; padding-left: 1rem; }
+        ul.lista-mapa li { margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem; }
+        ul.lista-mapa li::before {
+            content: "📄";
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+        ul.lista-mapa ul { margin-top: 0.5rem; margin-left: 1.5rem; }
+        ul.lista-mapa ul li::before { content: "🔗"; }
+        .mapa-container a { color: var(--color-primario); text-decoration: none; font-weight: 500; }
+        .mapa-container a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header style="justify-content: center;">
+        <div class="logo"><h1>IncluEmpleo</h1></div>
+    </header>
+
+    <main>
+        <div class="mapa-container">
+            <h2>Estructura del Sitio Web</h2>
+
+            <div class="seccion-mapa">
+                <h3>Secciones Principales</h3>
+                <ul class="lista-mapa">
+                    <li><a href="index.php">Inicio</a> - Página principal con buscador.</li>
+                    <li><a href="vacantes.php">Vacantes</a> - Listado de ofertas laborales.</li>
+                    <li><a href="empresas.php">Empresas</a> - Directorio de empresas inclusivas.</li>
+                    <li><a href="ayuda.php">Ayuda</a> - Preguntas frecuentes y guías.</li>
+                    <li><a href="contacto.php">Contáctanos</a> - Formulario de contacto.</li>
+                </ul>
+            </div>
+
+            <div class="seccion-mapa">
+                <h3>Acceso de Usuarios</h3>
+                <ul class="lista-mapa">
+                    <li><a href="login.html">Iniciar Sesión</a></li>
+                    <li><a href="registro.html">Registrarse</a> (Usuario / Empresa)</li>
+                    <li><a href="recuperar.html">Recuperación de contraseña</a></li>
+                </ul>
+            </div>
+
+            <div class="seccion-mapa">
+                <h3>Elementos Adicionales</h3>
+                <ul class="lista-mapa">
+                    <li><a href="accesibilidad.html">Opciones de Accesibilidad</a> (Contraste y Lector)</li>
+                    <li><a href="error404.html">Página de Error (404)</a></li>
+                    <li>Buscador Interno (en Inicio y Vacantes)</li>
+                    <li>Chatbot de Ayuda Flotante (en todas las páginas)</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
